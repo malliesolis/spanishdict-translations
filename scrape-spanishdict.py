@@ -41,7 +41,7 @@ with sync_playwright() as playwright:
 
 
         # Join the translations with a semicolon
-        formatted_output = ';'.join(translations)
+        formatted_output = '\n'.join(translations)
 
         pyperclip.copy(formatted_output)
 
