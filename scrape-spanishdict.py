@@ -4,11 +4,13 @@ import pyperclip
 import sys
 
 with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(headless=False)
+        #launch(headless=False) for visualization (ie opens Chromium)
+        browser = playwright.chromium.launch()
         context = browser.new_context()
 
         page = browser.new_page()
 
+        # TODO: Get teh URL from the GUI
         # Check if the URL argument is provided
         if len(sys.argv) < 2:
                 print("Please provide the URL as an argument.")
@@ -24,29 +26,15 @@ with sync_playwright() as playwright:
         translations = []
 
         for item in data:
-                word_en = item['translation']
-                context_en = item['contextEn']
-                headwordAudioUrl = item['headwordAudioUrl']
+                # Get the value of the 'text' parameter from URL 
+                text_param = parse_qs(urlparse(item['headwordAudioUrl']).query).get('text')
 
-                # Parse the URL
-                parsed_url = urlparse(headwordAudioUrl)
-
-                # Get the value of the 'text' parameter
-                text_param = parse_qs(parsed_url.query).get('text')
-
+                # Format the word-translation pairing
                 if text_param:
-                        # Extract the text value
-                        word_es = text_param[0]
-
-                        # Replace dashes with spaces
-                        word_es = word_es.replace('-', ' ')
-
-                        # Format the translation
-                        formatted_translation = word_en
-                        context_en = context_en.replace(',', ' or')
-                        if context_en:
-                                formatted_translation += f" ({context_en})"
-                        formatted_translation += f",{word_es}"
+                        formatted_translation = item['translation']
+                        if item['contextEn']:
+                                formatted_translation += f" ({item['contextEn']})"
+                        formatted_translation += f"\t{text_param[0].replace('-', ' ')}"
 
                         # Add to the translations list
                         translations.append(formatted_translation)
@@ -55,13 +43,12 @@ with sync_playwright() as playwright:
         # Join the translations with a semicolon
         formatted_output = ';'.join(translations)
 
-        print(formatted_output)
         pyperclip.copy(formatted_output)
 
         # Name of file will be the Name of the List in Spanish Dict
-        last_part = spanishdict_url.split("/")[-1]
-        file_name = last_part.replace("-", " ")
+        file_name = spanishdict_url.split("/")[-1].replace("-", " ")
 
+        # TODO: Export CSV file instead of text file
         # Save the translations to a file
         with open(file_name+'.txt', 'w') as file:
                 file.write(formatted_output)
