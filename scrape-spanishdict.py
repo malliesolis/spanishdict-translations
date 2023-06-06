@@ -1,46 +1,72 @@
-from playwright.sync_api import sync_playwright
 from urllib.parse import urlparse, parse_qs
 import pyperclip
 import sys
+import requests
+import re
+import json
+from bs4 import BeautifulSoup
 
-with sync_playwright() as playwright:
-        #launch(headless=False) for visualization (ie opens Chromium)
-        browser = playwright.chromium.launch()
-        context = browser.new_context()
+# EXAMPLE URL: 'https://www.spanishdict.com/lists/5980437/mayo-2023'
 
-        page = browser.new_page()
+# TODO: Get the URL from the GUI
+# Check if the URL argument is provided
+if len(sys.argv) < 2:
+        print("Please provide the URL as an argument.")
+        sys.exit(1)
 
-        # TODO: Get teh URL from the GUI
-        # Check if the URL argument is provided
-        if len(sys.argv) < 2:
-                print("Please provide the URL as an argument.")
-                sys.exit(1)
+# Get the URL from the command-line argument
+spanishdict_url = sys.argv[1]
 
-        # Get the URL from the command-line argument
-        spanishdict_url = sys.argv[1]
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36'
+}
 
-        page.goto(spanishdict_url)
+response = requests.get(spanishdict_url, headers=headers)
+html_data = response.content
 
-        data = page.evaluate('() => window.SD_COMPONENT_DATA.translations')
+soup = BeautifulSoup(html_data, 'html.parser')
+
+script_tags = soup.findAll('script')
+#vocab_translations_tag = None
+
+for tag in script_tags:
+    if tag.string and 'vocabTranslations' in tag.string:
+        vocab_translations_tag = tag
+        break
+
+if vocab_translations_tag:        
+        window_script = vocab_translations_tag.string
+        
+#        data_dict = json.loads(vocab_translations_tag.string)
+        
+        # Find the index of the first occurrence of "w"
+        # Remove everything before the first "w" (inclusive)
+        trimmed_string = window_script[window_script.index("{"):]        
+
+        #TODO: Find a better way to remove the trailing semicolon
+        data_dict = json.loads(trimmed_string[:-14])['translations']
 
         translations = []
 
-        for item in data:
+        for item in data_dict:
                 # Get the value of the 'text' parameter from URL 
-                text_param = parse_qs(urlparse(item['headwordAudioUrl']).query).get('text')
+                text_param = item['headwordAudioUrl']
 
                 # Format the word-translation pairing
                 if text_param:
                         formatted_translation = item['translation']
                         if item['contextEn']:
                                 formatted_translation += f" ({item['contextEn']})"
-                        formatted_translation += f"\t{text_param[0].replace('-', ' ')}"
+
+                        # Parse the URL, Extract the value of the "text" attribute, and Remove dashes from the text value
+                        text_value = parse_qs(urlparse(text_param).query).get("text", [""])[0].replace("-", " ")
+                        formatted_translation += f"\t{text_value}"
 
                         # Add to the translations list
                         translations.append(formatted_translation)
 
 
-        # Join the translations with a semicolon
+        # Join the translations with a tab
         formatted_output = '\n'.join(translations)
 
         pyperclip.copy(formatted_output)
@@ -52,5 +78,3 @@ with sync_playwright() as playwright:
         # Save the translations to a file
         with open(file_name+'.txt', 'w') as file:
                 file.write(formatted_output)
-
-        browser.close()

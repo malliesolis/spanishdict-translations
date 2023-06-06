@@ -1,1 +1,104 @@
-mousetrap	la ratonera;court (basketball, tennis)	la cancha;perhaps	acaso;leather	el cuero;to fit	caber;to fit	caber;to be possible	caber;type	el tipo;to deny	negar;footprint (of a human)	la huella;size	la talla;stature	la talla;to water	regar;to break	quebrar;type	el estilo;to go over	repasar;to review	repasar;to cross	atravesar;to replace	reemplazar;stamp	el sello;to be left over	sobrar;clumsy	torpe;to throw away	botar;to convince	convencer;crime	el delito;to mock	burlarse;to provoke	provocar;savannah	la sabana;to grab	agarrar;pending	pendiente;horn	la bocina;comfort	el consuelo;consolation	el consuelo;to punish (a person or crime)	castigar;wing (of a bird, bat or insect)	el ala;to step on	pisar;deep	hondo;dexterity	la destreza;to assemble	armar;to bless	bendecir;to recover	recuperar;to stick out	sobresalir;to stand out	sobresalir;determination	el empeño;effort	el empeño;to move back and forth	menear;similarity	la semejanza;resemblance	la semejanza;to get in the way of	estorbar;harmful	perjudicial;damaging	perjudicial;embarrassment	el apuro;rush	el apuro;hardship	el apuro;vein	la vena;to blame	culpar;to settle	posarse;to land	posarse;to alight	posarse;to perch	posarse;reward	la recompensa;to exceed	sobrepasar;magnet	el imán;labyrinth	el laberinto;thirsty	sediento;tomb	la sepultura;fish tank (rectangular)	la pecera;skill	la maña;bad habit	la maña;to forge	forjar;good sense	la cordura;to embroider	bordar;to be excellent in	bordar;to force oneself	obligarse;jealousy	los celos;to turn	virar;to accelerate (vehicle)	acelerar;to undress	desnudar;to quench (thirst)	saciar;to satisfy (curiosity)	saciar;to dissolve	disolver;to play brilliantly (acting, sports, or music)	bordar;gentleness	la delicadeza;silhouette	la silueta;malice	la malicia;slyness	la malicia;to party	rumbear;treacherous	traicionero;espionage	el espionaje;spying	el espionaje;savannah	sabanero;seductive	seductor;perpetual	perpetuo;own goal	el autogol;handwritten	manuscrito;mutilated	mutilado;to go screw oneself	joderse;kid	la nena;little girl	la nena;baby	la nena;dear	la nena;to bundle up	abrigarse;swearword	la grosería;drug	el polvito
+mousetrap	la ratonera
+court (basketball, tennis)	la cancha
+perhaps	acaso
+leather	el cuero
+to fit	caber
+to fit	caber
+to be possible	caber
+type	el tipo
+to deny	negar
+footprint (of a human)	la huella
+size	la talla
+stature	la talla
+to water	regar
+to break	quebrar
+type	el estilo
+to go over	repasar
+to review	repasar
+to cross	atravesar
+to replace	reemplazar
+stamp	el sello
+to be left over	sobrar
+clumsy	torpe
+to throw away	botar
+to convince	convencer
+crime	el delito
+to mock	burlarse
+to provoke	provocar
+savannah	la sabana
+to grab	agarrar
+pending	pendiente
+horn	la bocina
+comfort	el consuelo
+consolation	el consuelo
+to punish (a person or crime)	castigar
+wing (of a bird, bat or insect)	el ala
+to step on	pisar
+deep	hondo
+dexterity	la destreza
+to assemble	armar
+to bless	bendecir
+to recover	recuperar
+to stick out	sobresalir
+to stand out	sobresalir
+determination	el empeño
+effort	el empeño
+to move back and forth	menear
+similarity	la semejanza
+resemblance	la semejanza
+to get in the way of	estorbar
+harmful	perjudicial
+damaging	perjudicial
+embarrassment	el apuro
+rush	el apuro
+hardship	el apuro
+vein	la vena
+to blame	culpar
+to settle	posarse
+to land	posarse
+to alight	posarse
+to perch	posarse
+reward	la recompensa
+to exceed	sobrepasar
+magnet	el imán
+labyrinth	el laberinto
+thirsty	sediento
+tomb	la sepultura
+fish tank (rectangular)	la pecera
+skill	la maña
+bad habit	la maña
+to forge	forjar
+good sense	la cordura
+to embroider	bordar
+to be excellent in	bordar
+to force oneself	obligarse
+jealousy	los celos
+to turn	virar
+to accelerate (vehicle)	acelerar
+to undress	desnudar
+to quench (thirst)	saciar
+to satisfy (curiosity)	saciar
+to dissolve	disolver
+to play brilliantly (acting, sports, or music)	bordar
+gentleness	la delicadeza
+silhouette	la silueta
+malice	la malicia
+slyness	la malicia
+to party	rumbear
+treacherous	traicionero
+espionage	el espionaje
+spying	el espionaje
+savannah	sabanero
+seductive	seductor
+perpetual	perpetuo
+own goal	el autogol
+handwritten	manuscrito
+mutilated	mutilado
+to go screw oneself	joderse
+kid	la nena
+little girl	la nena
+baby	la nena
+dear	la nena
+to bundle up	abrigarse
+swearword	la grosería
+drug	el polvito
